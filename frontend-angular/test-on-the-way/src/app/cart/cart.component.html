@@ -1,0 +1,87 @@
+<section class="h-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-lg-10 col-xl-8">
+                <div class="card" style="border-radius: 10px;">
+                    <div class="card-header px-4 py-5">
+                        <h5 class="text-muted mb-0">Cart Details</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <!-- <div class="d-flex justify-content-between align-items-center mb-4">
+                            <p class="lead fw-normal mb-0" style="color: #a8729a;">Receipt</p>
+                            <p class="small text-muted mb-0">Receipt Voucher : 1KAU9-84UIL</p>
+                        </div> -->
+                        <div *ngFor="let cart of cartDetails,let i= index" class="card shadow-0 border mb-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <img style="border-radius: 5px;" src="{{cart.img}}" class="img-fluid"
+                                            alt="Phone">
+                                    </div>
+                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                        <p class="text-muted mb-0">{{cart.name}}</p>
+                                    </div>
+                                    <!-- <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                        <p class="text-muted mb-0 small">Description: {{detail.description}}</p>
+                                    </div> -->
+                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                        <p class="text-muted mb-0 small">Rastaurant: {{cart.rname}}</p>
+                                    </div>
+                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                        <p class="text-muted mb-0 small">Price: {{cart.price | currency:'INR'}}</p>
+                                    </div>
+                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                        <button class="btn  btn-sm minus-btn" type="button" id="button-addon1"><i
+                                                class="fa fa-minus"
+                                                (click)="decreaseQuantity(cart.cid,cart.qty,cart.price,i,cart.cart_id,cart.pid)"></i></button>
+                                        <p class="text-muted mb-0 small"> Qty: {{cart.qty}} </p>
+                                        <button class="btn btn-sm add-btn" type="button" id="button-addon1"
+                                            (click)="increaseQuantity(cart.cid,cart.qty,cart.price,i)"><i
+                                                class="fa fa-plus"></i></button>
+                                    </div>
+                                    <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                                        <p class="text-muted mb-0 small">SubTotal: {{cart.subtotal | currency:'INR'}}
+                                        </p>
+                                    </div>
+                                </div>
+                                <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
+                                <div class="row d-flex align-items-center">
+                                    <div class="col-md-12">
+                                        <p class="text-muted mb-0 ">Description: <span class="text-muted mb-0 small">
+                                                {{cart.description}} </span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between pt-2">
+                            <p class="fw-bold mb-0">Select Address:</p>
+                            <button *ngIf="addresses.length == 0" routerLink="../address/addaddress">Add
+                                Address</button>
+                            <div *ngFor="let add of addresses">
+                                <input type="radio" [id]="add.id" name="address" Name="address"
+                                    (change)="changeAddress($event)">
+                                <label>{{add.houseno}},{{add.street}},{{add.area}}</label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between pt-2">
+                            <p class="fw-bold mb-0">Select Payment Mode:</p>
+                            <div *ngFor="let mode of payment">
+                                <input type="radio" [value]="mode.mode" name="mode" Name="mode"
+                                    (change)="changeMode($event)">
+                                <label> {{mode.mode}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer border-0 px-4 py-5"
+                        style="background-color: #919090; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+                        <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">
+                            Total:<span class="h2 mb-0 ms-2">{{cartTotal | currency:'INR'}}</span></h5>
+                    </div>
+                    <button type="button" class="btn btn-info" (click)="createOrder(cartTotal)">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

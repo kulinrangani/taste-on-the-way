@@ -1,0 +1,17 @@
+<h2 class="h2"></h2>
+<div style="display: flex; flex-wrap: wrap;">
+    <div style="height:fit-content; width: 19rem; margin: 15px; background-color: #e2e2e2;" class="card"
+        *ngFor="let product of products,let i = index">
+        <div class="view overlay">
+            <img class="img-fluid" style="border-radius: 15px; padding: 5px;" src="{{product.img}}"
+                alt="Card image cap">
+        </div>
+        <div class="card-body">
+            <h6 class="card-title">{{product.name}}</h6>
+            <hr>
+            <p class="card-title">Price<span class="card-text">{{product.price | currency:'INR'}}</span></p>
+            <hr class="mt-0 mb-4">
+            <a (click)="addToCart(product.id,product.price,i)" class="btn btn-primary">AddTo Cart</a>
+        </div>
+    </div>
+</div>

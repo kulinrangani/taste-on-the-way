@@ -1,0 +1,12 @@
+<div class="container marketing" style="margin-top: 20px;">
+    <h3>Eat what makes you happy</h3>
+    <hr class="featurette-divider">
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        <div class="col-sm-4" *ngFor="let category of categories" routerLink="/category/product/{{category.id}}">
+            <div style="margin-left: 4.688rem;">
+                <img class="rounded-circle" src="{{category.img}}" alt="Card image cap" height="150" width="150">
+                <h3 class="card-title" style="margin-left: 2.188rem;">{{category.name}}</h3>
+            </div>
+        </div>
+    </div><!-- /.row -->

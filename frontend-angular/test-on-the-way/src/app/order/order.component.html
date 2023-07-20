@@ -1,0 +1,57 @@
+<h1 class="text-center text-uppercase">Orders</h1>
+<div style="display: flex; flex-wrap: wrap;">
+    <br>
+    <br>
+    <!-- <div style="display: flex; flex-wrap: wrap;" class="row"> -->
+    <!-- <div class="col-sm-12 col-md-6 col-lg-4"> -->
+    <div class="food-card" *ngFor="let order of orders" style="margin-left: 20px;">
+        <div class="food-card_img">
+            <img src="../assets/thankyou/thankyou.jpg" alt="Sorry Sorry">
+        </div>
+        <div class="food-card_content">
+            <h5 class="food-card_title">Order No: {{order.id}}</h5>
+            <hr>
+            <h6 class="food-card_bottom-section">Address:</h6>
+            <p style="word-wrap: normal;">
+                {{order.houseno}},{{order.street}},{{order.area}},{{order.city}},{{order.country}}
+            </p>
+            <hr>
+            <h6 class="food-card_bottom-section">Date:</h6>
+            <p>{{order.createdAt | date}}</p>
+            <hr>
+            <h6 class="food-card_bottom-section">Payment Details:</h6>
+            <p>Mode: {{order.paymentMode}} | Status: {{order.paymentStatus}}</p>
+            <div class="food-card_bottom-section">
+                <hr>
+                <div class="space-between">
+                    <div class="food-card_price">
+                        <a>
+                            {{order.total | currency:'INR'}}
+                        </a>
+                        <button routerLink="/orders/details/{{order.id}}" class="btn btn-primary">
+                            Details
+                        </button>
+                    </div>
+
+
+                    <!-- <div class="food-card_order-count">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary minus-btn" type="button" id="button-addon1"><i
+                                        class="fa fa-minus"></i></button>
+                            </div>
+                            <input type="text" class="form-control input-manulator" placeholder=""
+                                aria-label="Example text with button addon" aria-describedby="button-addon1" value="0">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary add-btn" type="button" id="button-addon1"><i
+                                        class="fa fa-plus"></i></button>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- </div> -->
+<!-- </div> -->

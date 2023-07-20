@@ -1,0 +1,110 @@
+<!-- <h1>Welcome Home</h1>
+{{message}}
+<app-category></app-category>
+<app-restaurant></app-restaurant> -->
+<main>
+    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../assets/carousel/1.jpg" class="d-block w-100" height="450px" style="opacity: 0.7;"
+                    alt="...">
+                <div class="container">
+                    <div class="carousel-caption text-start">
+                        <h1>Hungry!!</h1>
+                        <p>Order Delicious And Enjoy</p>
+                        <p><a class="btn btn-lg btn-primary" routerLink="/register">Sign up today</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../assets/carousel/2.jpg" class="d-block w-100" height="450px" style="opacity: 0.7;"
+                    alt="...">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1>Discover the best food.</h1>
+                        <p>Explore The Wide Range of Food Available Online</p>
+                        <p><a class="btn btn-lg btn-primary" routerLink="/category">Explore</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../assets/carousel/3.jpg" class="d-block w-100" width="80%" height="450px"
+                    style="opacity: 0.7;" alt="...">
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h1>One more for good measure.</h1>
+                        <p>Some representative placeholder content for the third slide of this carousel.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!-- Marketing messaging and featurettes
+  ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing" style="margin-top: 20px;">
+        <app-category></app-category>
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+        <h3>Restaurants Around You</h3>
+        <div *ngFor="let restaurant of restaurants,let i = index">
+
+            <div *ngIf="i % 2 == 0" class="row featurette">
+                <hr class="featurette-divider">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading fw-normal lh-1">{{restaurant.name}}</h2><br>
+                    <p class="lead">{{restaurant.about}}</p>
+                    <span class="card-title">
+                        Contact No: {{restaurant.contactNO}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                    <button routerLink="/restaurant/product/{{restaurant.id}}" [disabled]="!restaurant.isAvailable"
+                        class="btn btn-primary">Check Out</button>
+                    <a *ngIf="!restaurant.isAvailable"> Not Available</a>
+                </div>
+                <div class="col-md-5">
+                    <img src="{{restaurant.img}}" class="img-thumbnail" style="margin-bottom: 15px;" height="300"
+                        width="300" />
+                </div>
+            </div>
+
+
+            <div *ngIf="i % 2 != 0" class="row featurette" routerLink="">
+                <hr class="featurette-divider">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="featurette-heading fw-normal lh-1">{{restaurant.name}}</h2><br>
+                    <p class="lead">{{restaurant.about}}</p>
+                    <span class="card-title">
+                        Contact No: {{restaurant.contactNO}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </span>
+                    <button routerLink="/restaurant/product/{{restaurant.id}}" [disabled]="!restaurant.isAvailable"
+                        class="btn btn-primary">Check Out</button>
+                    <a *ngIf="!restaurant.isAvailable"> Not Available</a>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <img src="{{restaurant.img}}" class="img-thumbnail" height="300" width="300"
+                        style="margin-bottom: 15px;" />
+                </div>
+            </div>
+        </div>
+        <!-- /END THE FEATURETTES -->
+    </div><!-- /.container -->
+    <hr class="featurette-divider">
+</main>

@@ -1,0 +1,53 @@
+<nav class="navbar sticky-top navbar-expand-sm navbar-light bg-light" aria-label="Ninth navbar example">
+    <div class="container-xl">
+        <a class="navbar-brand" routerLink="/home">Test-on-the-Way</a>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="authenticated">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/category" routerLinkActive="active">Category</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/restaurant" routerLinkActive="acitve">Restaurant</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/cart" routerLinkActive="acitve">Cart</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/orders" routerLinkActive="acitve">Orders</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/profile" routerLinkActive="acitve">Profile</a>
+            </li>
+        </ul>
+
+
+        <!-- ------------------------------------------------------------ -->
+        <ul class="navbar-nav ml-auto" *ngIf="!authenticated">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/register" routerLinkActive="acitve">Register</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" *ngIf="authenticated">
+            <li style="margin-right: 20px;" class="nav-item">
+                <div class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" [(ngModel)]="searchText" placeholder="Search"
+                        aria-label="Search">
+                    <button class="btn btn-outline-success" routerLink="/search" (click)="search()"
+                        type="submit">Search</button>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/login" routerLinkActive="active" (click)="logOut()">Logout</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto" *ngIf="adminAuthenticated">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/admin/users" routerLinkActive="active">Admin</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- <app-search *ngIf="searchText == '' || searchText == null"></app-search> -->

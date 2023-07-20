@@ -1,0 +1,25 @@
+<h2 class="h2">Restaurants</h2>
+<div style="display: flex; flex-wrap: wrap; ">
+    <div style="height: fit-content; width: 19rem; height: fit-content; background-color: #e2e2e2; margin: 15px;"
+        class="card" *ngFor="let restaurant of restaurants">
+        <div class="view overlay">
+            <img class="img-fluid" style="padding:25px; height: 300px; width: 300px;" src="{{restaurant.img}}"
+                alt="Card image cap">
+            <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">{{restaurant.name}}</h4>
+            <hr class="mt-0 mb-4">
+            <h6 class="card-title">About:</h6>
+            <p class="card-text">{{restaurant.about}}</p>
+            <hr class="mt-0 mb-4">
+            <h6 class="card-title">Contact No</h6>
+            <p class="card-text">{{restaurant.contactNO}}</p>
+            <button routerLink="/restaurant/product/{{restaurant.id}}" [disabled]="!restaurant.isAvailable"
+                class="btn btn-primary">Check Out</button>
+            <a *ngIf="!restaurant.isAvailable"> Not Available</a>
+        </div>
+    </div>
+</div>

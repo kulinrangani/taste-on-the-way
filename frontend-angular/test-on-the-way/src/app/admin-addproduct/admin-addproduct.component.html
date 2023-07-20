@@ -1,0 +1,40 @@
+<div style="margin: 50px;">
+    <main class="form-signin w-100 m-auto">
+        <h1 class="h3 mb-3 fw-normal">Add Product</h1>
+        <form class="formlogin" [formGroup]="productForm" (submit)="addProduct()">
+
+            <div class="form-control">
+                <label>Enter Name</label>
+                <input type="text" formControlName="name" class="form-control" required>
+            </div>
+            <div class="form-control">
+                <label>Enter Description</label>
+                <input type="text" formControlName="description" class="form-control" required>
+            </div>
+            <div class="form-control">
+                <label>Enter Price</label>
+                <input type="text" formControlName="price" class="form-control" required>
+            </div>
+            <div class="form-control">
+                <label>Select Restaurant</label>
+                <select class="form-control" formControlName="restaurant_id">
+                    <option *ngFor=" let restaurant of restaurants" value="{{restaurant.id}}">{{restaurant.name}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-control">
+                <label>Select Category</label>
+                <select class="form-control" formControlName="category_id">
+                    <option *ngFor=" let category of categories" value="{{category.id}}">{{category.name}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-control">
+                <label>Upload Image</label><br>
+                <input name="imageUrl" type="file" formControlName="image" accept="image/*"
+                    (change)="handleInputChange($event)" />
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Add Product</button>
+        </form>
+    </main>
+</div>

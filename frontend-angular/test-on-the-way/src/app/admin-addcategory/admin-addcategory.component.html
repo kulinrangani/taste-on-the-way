@@ -1,0 +1,25 @@
+<div style="margin: 50px;">
+    <main class="form-signin w-100 m-auto">
+        <h1 class="h3 mb-3 fw-normal">Add Category</h1>
+        <form class="formlogin" [formGroup]="categoryForm" (submit)="addCategory()">
+
+            <div class="form-control">
+                <label>Enter Name</label>
+                <input type="text" formControlName="name" class="form-control" required>
+            </div>
+            <div class="form-control">
+                <label>Select Restaurant</label>
+                <select class="form-control" formControlName="restaurant_id">
+                    <option *ngFor=" let restaurant of restaurants" value="{{restaurant.id}}">{{restaurant.name}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-control">
+                <label>Upload Image</label><br>
+                <input name="imageUrl" type="file" formControlName="img" accept="image/*"
+                    (change)="handleInputChange($event)" />
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Add Category</button>
+        </form>
+    </main>
+</div>

@@ -1,0 +1,26 @@
+<div class="tbl">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">HouseNo</th>
+                <th scope="col">Area</th>
+                <th scope="col">Street</th>
+                <th scope="col">City</th>
+                <th scope="col">Country</th>
+                <th>Delete Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let add of addresses , let i=index">
+                <th scope="row">{{add.houseno}}</th>
+                <td>{{add.street}}</td>
+                <td>{{add.area}}</td>
+                <td>{{add.city}}</td>
+                <td>{{add.country}}</td>
+                <td><button class="btn btn-danger" (click)="deleteAddress(add)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <button routerLink="addaddress" type="button" class="btn btn-secondary">Add Address</button>
+</div>
+<router-outlet></router-outlet>

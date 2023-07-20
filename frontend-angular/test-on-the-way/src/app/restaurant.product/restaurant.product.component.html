@@ -1,0 +1,38 @@
+<!-- <h3>Restaurant Name : {{products[0].rname}}</h3> -->
+<h2 class="h2"></h2>
+<div style="display: flex; flex-wrap: wrap;">
+    <div style="height:fit-content; width: 19rem; margin: 15px; background-color: #e2e2e2;" class="card"
+        *ngFor="let product of products,let i = index">
+
+        <!-- Card image -->
+        <div class="view overlay">
+            <img class="img-fluid" style="border-radius: 15px; padding: 5px;" src="{{product.img}}"
+                alt="Card image cap">
+            <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+
+        <!-- Card content -->
+
+        <div class="card-body">
+            <!-- Title -->
+            <h4 class="card-title">{{product.name}}</h4>
+
+
+            <!-- <h5 class="card-title">Reasturant Name</h5> -->
+            <h6 class="card-title">Restaurant Name : {{product.rname}} </h6>
+            <hr class="mt-0 mb-4">
+            <!-- Text -->
+            <h6>Description : </h6>
+            <p class="card-text">{{product.description}}</p>
+            <hr class="mt-0 mb-4">
+
+            <!-- Button -->
+            <a (click)="addToCart(product.id,product.price)" class="btn btn-primary">AddTo Cart</a>
+
+        </div>
+
+    </div>
+</div>
+<!-- Card -->

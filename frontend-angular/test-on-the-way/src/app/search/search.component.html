@@ -1,0 +1,66 @@
+<!-- Category -->
+<div class="container marketing" style="margin-top: 20px;">
+    <h3>Eat what makes you happy</h3>
+    <hr class="featurette-divider">
+    <div class="row">
+        <div class="col-sm-4" *ngFor="let category of categories | filter:searchText"
+            routerLink="/category/product/{{category.id}}">
+            <div style="margin-left: 4.688rem;">
+                <img class="rounded-circle" src="{{category.img}}" alt="Card image cap" height="150" width="150">
+                <h3 class="card-title" style="margin-left: 2.188rem;">{{category.name}}</h3>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+
+
+<!-- Restaurant -->
+<div class="container marketing">
+
+    <h2 class="h2">Restaurants</h2>
+    <hr>
+    <div style="display: flex; flex-wrap: wrap; ">
+        <div style="height: fit-content; width: 19rem; height: fit-content; background-color: #e2e2e2; margin: 15px;"
+            class="card" *ngFor="let restaurant of restaurants | filter :searchText">
+            <div class="view overlay">
+                <img class="img-fluid" style="padding:25px; height: 300px; width: 300px;" src="{{restaurant.rimg}}"
+                    alt="Card image cap">
+                <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{restaurant.rname}}</h4>
+                <hr class="mt-0 mb-4">
+                <h6 class="card-title">About:</h6>
+                <p class="card-text">{{restaurant.about}}</p>
+                <hr class="mt-0 mb-4">
+                <h6 class="card-title">Contact No</h6>
+                <p class="card-text">{{restaurant.contactNO}}</p>
+                <button routerLink="/restaurant/product/{{restaurant.id}}" [disabled]="!restaurant.isAvailable"
+                    class="btn btn-primary">Check Out</button>
+                <a *ngIf="!restaurant.isAvailable"> Not Available</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Products -->
+<h2 class="h2"></h2>
+<div style="display: flex; flex-wrap: wrap;">
+    <div style="height:fit-content; width: 19rem; margin: 15px; background-color: #e2e2e2;" class="card"
+        *ngFor="let product of products | filter:searchText">
+        <div class="view overlay">
+            <img class="img-fluid" style="border-radius: 15px; padding: 5px;" src="{{product.img}}"
+                alt="Card image cap">
+        </div>
+        <div class="card-body">
+            <h6 class="card-title">{{product.pname}}</h6>
+            <hr>
+            <p class="card-title">Price<span class="card-text">{{product.price | currency:'INR'}}</span></p>
+            <hr class="mt-0 mb-4">
+            <a (click)="addToCart(product.id,product.price)" class="btn btn-primary">AddTo Cart</a>
+        </div>
+    </div>
+</div>

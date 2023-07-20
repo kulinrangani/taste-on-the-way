@@ -1,0 +1,40 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "createModel": "npx sequelize-cli model:generate --name Cart --attributes user_id:integer,total:double,address_id:integer",
+    "migrate": "npx sequelize-cli db:migrate --name 20230411114447-create-cart-detail.js",
+    "undo": "npx sequelize-cli db:migrate:undo --name 20230329065350-create-cart.js",
+    "undoAll": "npx sequelize-cli db:migrate:undo:all --to 20230329080212-create-order.js",
+    "modify": "npx sequelize-cli migration:create --name modify_product",
+    "seed": "npx sequelize-cli seed:generate --name oederDetail",
+    "seedAll": "npx sequelize-cli db:seed:all",
+    "seedrun": "npx sequelize-cli db:seed ",
+    "seedundo": "npx sequelize-cli db:seed:undo --seed 20230329091747-order.js",
+    "seedundoAll": "npx sequelize-cli db:seed:undo:all"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular-material": "^1.2.5",
+    "bcryptjs": "^2.4.3",
+    "bootstrap": "^5.2.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "db-migrate": "^0.11.13",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "font-awesome": "^4.7.0",
+    "jsonwebtoken": "^9.0.0",
+    "nodemon": "^2.0.22",
+    "pg": "^8.10.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.30.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.0"
+  }
+}

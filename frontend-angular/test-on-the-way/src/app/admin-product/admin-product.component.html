@@ -1,0 +1,23 @@
+<div class="tbl">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Restaurant Name</th>
+                <th scope="col">Category Name</th>
+                <th>Delete Product</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products , let i=index">
+                <th scope="row">{{product.pid}}</th>
+                <td>{{product.pname}}</td>
+                <td>{{product.rname}}</td>
+                <td>{{product.cname}}</td>
+                <td><button class="btn btn-danger" (click)="deleteProduct(product)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <button routerLink="../addproduct" type="button" class="btn btn-secondary">Add Product</button>
+</div>

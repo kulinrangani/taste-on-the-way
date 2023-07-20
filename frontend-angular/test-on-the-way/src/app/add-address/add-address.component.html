@@ -1,0 +1,29 @@
+<div style="margin: 50px;">
+    <main class="form-signin w-100 m-auto">
+        <h1 class="h3 mb-3 fw-normal">Add Product</h1>
+        <form class="formlogin" [formGroup]="addressForm" (submit)="addAddress()">
+
+            <div class="form-control">
+                <label>Enter HouseNo</label>
+                <input type="number" formControlName="houseno" class="form-control" required>
+            </div>
+            <div class="form-control">
+                <label>Enter Street</label>
+                <input type="text" formControlName="street" class="form-control" required>
+            </div>
+            <div class="form-control">
+                <label>Enter Area</label>
+                <input type="text" formControlName="area" class="form-control" required>
+            </div>
+            <div class="form-control">
+                <label>Enter City</label>
+                <input type="text" formControlName="city" class="form-control" required>
+            </div>
+            <div class="form-control">
+                <label>Enter Country</label>
+                <input type="text" formControlName="country" class="form-control" required>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Add Address</button>
+        </form>
+    </main>
+</div>
